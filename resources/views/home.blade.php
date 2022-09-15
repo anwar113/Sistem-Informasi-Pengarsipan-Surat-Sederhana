@@ -61,26 +61,26 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach ($surat as $s )
+                                    @foreach ($surat as $sr )
                                         <tr>
-                                            <td>$s->no_surat</td>
-                                            <td>$s->kategori</td>
-                                            <td>$s->judul</td>
-                                            <td>$s->updated_at</td>
+                                            <td>{{$sr->no_surat}}</td>
+                                            <td>{{$sr->kategori}}</td>
+                                            <td>{{$sr->judul}}</td>
+                                            <td>{{$sr->updated_at}}</td>
                                             <td>
                                                 <button type="button" class="btn btn-sm btn-danger"
-                                                    data-bs-toggle="modal" data-bs-target="#basicModal{{$s->id}}">
+                                                    data-bs-toggle="modal" data-bs-target="#basicModal{{$sr->id}}">
                                                     Hapus
                                                 </button>
                                                 <a href="" type="button" class="btn btn-sm btn-warning">Unduh</a>
-                                                <a href="{{route('lihat')}}" type="button"
+                                                <a href="lihat/{{$sr->id}}" type="button"
                                                     class="btn btn-sm btn-primary">Lihat</a>
                                             </td>
                                             <!-- Default Modal -->
                                             <div class="col-lg-4 col-md-6">
                                                 <div class="mt-3">
                                                     <!-- Modal -->
-                                                    <div class="modal fade" id="basicModal" tabindex="-1"
+                                                    <div class="modal fade" id="basicModal{{$sr->id}}" tabindex="-1"
                                                         aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">
@@ -107,8 +107,8 @@
                                                                         data-bs-dismiss="modal">
                                                                         Batal
                                                                     </button>
-                                                                    <button type="button"
-                                                                        class="btn btn-primary">Ya!</button>
+                                                                    <a href="/hapus_{{$sr->id}}" type="button"
+                                                                        class="btn btn-primary">Ya!</a>
                                                                 </div>
                                                             </div>
                                                         </div>

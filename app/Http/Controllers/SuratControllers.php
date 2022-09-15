@@ -12,23 +12,34 @@ class SuratControllers extends Controller
         return view('home',['surat'=> Surat::all()]);
     }
     public function store(Request $request){
-        $fileName;
+    
         $validated=$request->validate([
-            'file'=>'mimes:pdf'
+            'pdf'=>'mimes:pdf',
+            'no_surat'=>'unique:Surat,no_surat',
+            'pdf'=>'mimes:pdf',
         ]);
-        if($request->file('file')){
-            $fileName = $request->file('file')->store('files','public');
+        if($request->file('pdf')){
+            $fileName = $request->file('pdf')->store('files','public');
         }
-
         Surat::create([
             'no_surat'=>$request->no_surat,
             'kategori'=>$request->kategori,
             'judul'=>$request->judul,
             'file'=>$fileName,
         ]);
-
-        return route('home')->withSuccess('Data Berhasil Ditambahkan');
-
+        return redirect ('/');
+    }
+    public function lihat($id){
+        return view('lihat',['surat'=>Surat::find($id)]);
+    }
+    public function hapus($id){
+        $data=Surat::find($id);
+        if($data->featured_image && file_exists(storage_path('app/public/' . $data->featured_image)))
+            {
+                \Storage::delete('public/'.$data->featured_image);
+            }
+        $data->delete();
+    return redirect('/');
     }
     
 }

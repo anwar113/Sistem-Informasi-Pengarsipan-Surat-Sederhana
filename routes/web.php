@@ -22,9 +22,8 @@ route::post('store',[SuratControllers::class,'store'])->name('store');
 route::get('/unggah',function(){
     return view('unggah');
 })->name('unggah');
-route::get('/lihat',function(){
-    return view('lihat');
-})->name('lihat');
+route::get('lihat/{id}',[SuratControllers::Class,'lihat']);
+route::get('/hapus_{id}',[SuratControllers::class,'hapus']);
 route::get('about',function(){
     return view('about');
 })->name('about');
