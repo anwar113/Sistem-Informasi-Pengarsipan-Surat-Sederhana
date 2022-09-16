@@ -73,11 +73,26 @@
                     <div class="col-sm-12">
                         <div class="card-body">
                             <div class="mb-4">
-                                <embed src="{{asset('storage/'.$surat->file)}}" width="600" height="500" alt="pdf">
+                                <!-- <embed src="{{asset('storage/'.$surat->file)}}" width="500" height="375" alt="pdf"> -->
+                                <iframe src="{{asset('storage/'.$surat->file)}}" width="100%" height="500px"
+                                    frameborder="0"></iframe>
                             </div>
                             <div class="">
                                 <br>
-                                <a href="{{route('unggah')}}" type="button" class="btn btn-primary">Arsipkan Surat</a>
+                                <div class="row">
+                                    <div class="col">
+                                        <a href="{{route('home')}}" type="button" class="btn btn-outline-primary"><< Kembali
+                                            </a>
+                                    </div>
+                                    <div class="col">
+                                    <a href="{!! route('download', $surat->file) !!}" download>{{ $surat->file }}</a>
+                                    <a href="{{route('unggah')}}" type="button" class="btn btn-outline-warning">Unduh</a>
+                                    </div>
+                                    <div class="col">
+                                    <a href="{{route('unggah')}}" type="button" class="btn btn-warning">Edit / Ganti File</a>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>

@@ -46,4 +46,7 @@ class SuratControllers extends Controller
         return view('home',['surat'=>$data]);
     }
     
+    public function download($file){
+        return response()->download(storage_path('app/public/files/'.$file));
+    }
 }
