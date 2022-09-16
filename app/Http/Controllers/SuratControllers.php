@@ -45,7 +45,7 @@ class SuratControllers extends Controller
     public function cari(Request $request){
         $data=Surat::where('judul','like','%'.$request->cari.'%')->get();
         // dd($data->count());
-        return view('home',['surat'=>$data,'cari'=>$request->cari]);
+        return view('cari',['surat'=>$data,'cari'=>$request->cari]);
     }
     
     public function ubah($id){
