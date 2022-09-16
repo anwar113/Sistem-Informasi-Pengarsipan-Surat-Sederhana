@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Surat;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class SuratControllers extends Controller
 {
@@ -15,16 +17,16 @@ class SuratControllers extends Controller
     
         $validated=$request->validate([
             'no_surat'=>'unique:surats,no_surat',
-            'file'=>'mimes:pdf,',
+            'file'=>'mimes:pdf',
         ]);
-        if($request->file('file')){
-            $namafile = $request->file('file')->store('files','public');
-        }
+        $dokumen=$request->file('file');
+        $nama_dokumen='DOC'.date('Tmdhis').'.'.$request->file->extension() ;
+        $dokumen->move('dokumen/',$nama_dokumen);
         Surat::create([
             'no_surat'=>$request->no_surat,
             'kategori'=>$request->kategori,
             'judul'=>$request->judul,
-            'file'=>$namafile,
+            'file'=>$nama_dokumen,
         ]);
         return redirect ('/');
     }   
@@ -43,10 +45,11 @@ class SuratControllers extends Controller
     public function cari(Request $request){
         $data=Surat::where('judul','like','%'.$request->cari.'%')->get();
         // dd($data->count());
-        return view('home',['surat'=>$data]);
+        return view('home',['surat'=>$data,'cari'=>$request->cari]);
     }
     
-    public function download($file){
-        return response()->download(storage_path('app/public/files/'.$file));
+    public function ubah($id){
+        dd(Surat::find($id));
+        return view('unggah',['surat',Surat::find($id)]);
     }
 }

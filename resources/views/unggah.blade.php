@@ -51,6 +51,10 @@
                                         </label>
                                         <div class="col col-md-2">
                                             <input type="text" name="no_surat" class="form-control" required>
+                                            @if($errors->has('no_surat'))
+                                        <br>
+                                        <small class="error">{{ $errors->first('no_surat') }}</small>
+                                        @endif
                                         </div>
                                     </div>
                                     <br>

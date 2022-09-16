@@ -19,11 +19,11 @@ use App\Http\Controllers\SuratControllers;
 // });
 Route::get('/',[SuratControllers::class,'index'])->name('home');
 route::post('store',[SuratControllers::class,'store'])->name('store');
-route::get('/lihat/{id}',[SuratControllers::Class,'lihat']);
+route::get('/lihat_{id}',[SuratControllers::Class,'lihat']);
 route::get('/hapus_{id}',[SuratControllers::class,'hapus']);
 route::post('cari',[SuratControllers::class,'cari']);
 route::get('/download_{file}',[SuratControllers::class,'download'])->name('download');
-
+route::get('/ubah/{id}',[SuratControllers::class,'ubah'])->name('ubah');
 
 route::get('/unggah',function(){
     return view('unggah');

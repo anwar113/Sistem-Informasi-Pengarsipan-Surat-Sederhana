@@ -74,7 +74,7 @@
                         <div class="card-body">
                             <div class="mb-4">
                                 <!-- <embed src="{{asset('storage/'.$surat->file)}}" width="500" height="375" alt="pdf"> -->
-                                <iframe src="{{asset('storage/'.$surat->file)}}" width="100%" height="500px"
+                                <iframe src="dokumen/{{$surat->file}}" width="100%" height="500px"
                                     frameborder="0"></iframe>
                             </div>
                             <div class="">
@@ -85,11 +85,10 @@
                                             </a>
                                     </div>
                                     <div class="col">
-                                    <a href="{!! route('download', $surat->file) !!}" type="button" class="btn btn-outline-warning" download>Unduh</a>
-                                    
+                                    <a href="dokumen/{{$surat->file}}"  download> <button class="btn btn-outline-warning" > Unduh</button></a>
                                     </div>
                                     <div class="col">
-                                    <a href="{{route('unggah')}}" type="button" class="btn btn-warning">Edit / Ganti File</a>
+                                    <a href="{!!route('ubah',$surat->id)!!}" type="button" class="btn btn-warning">Edit / Ganti File</a>
                                     </div>
                                 </div>
 

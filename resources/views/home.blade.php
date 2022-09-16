@@ -74,9 +74,9 @@
                                                     data-bs-toggle="modal" data-bs-target="#basicModal{{$sr->id}}">
                                                     Hapus
                                                 </button>
-                                                <a href="" type="button" class="btn btn-sm btn-warning">Unduh</a>
-                                                <a href="/lihat/{{$sr->id}}" type="button"
-                                                    class="btn btn-sm btn-primary">Lihat</a>
+                                                <a href="dokumen/{{$sr->file}}"  download> <button class="btn btn-sm btn-warning" > Unduh</button></a>
+                                                <a href="/lihat_{{$sr->id}}" type="button"
+                                                    class="btn btn-sm btn-primary" >Lihat</a>
                                             </td>
                                             <!-- Default Modal -->
                                             <div class="col-lg-4 col-md-6">
