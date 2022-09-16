@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Surat;
+use Spatie\Backtrace\File;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class SuratControllers extends Controller
 {
@@ -49,7 +52,27 @@ class SuratControllers extends Controller
     }
     
     public function ubah($id){
-        dd(Surat::find($id));
-        return view('unggah',['surat',Surat::find($id)]);
+        
+        // dd($su->no_surat);
+        return view('edit',['surat'=>Surat::find($id)]); 
+    }
+
+    public function update(Request $request,$id){
+        $data=Surat::find($id);
+        $validated=$request->validate([
+            'no_surat'=>'unique:surats,no_surat',
+            'file'=>'mimes:pdf',
+        ]);
+        $dokumen=$request->file('file');
+        $nama_dokumen='DOC'.date('Tmdhis').'.'.$request->file->extension() ;
+        $dokumen->move('dokumen/',$nama_dokumen);
+
+        $data->no_surat=$request->no_surat;
+        $data->kategori=$request->kategori;
+        $data->judul=$request->judul;
+        $data->file=$nama_dokumen;
+        $data->save();
+        Alert::success('Sukses', 'Data berhasil disimpan');
+        return redirect('lihat_'.$data->id);
     }
 }

@@ -2,7 +2,7 @@
 @section('title','Lihat Arsip')
 
 @section('content')
-
+@include('sweetalert::alert')
 <div class="container-xxl flex-grow-1 container-p-y">
     <div class="row">
         <div class="col-lg-12 mb-1 order-0">

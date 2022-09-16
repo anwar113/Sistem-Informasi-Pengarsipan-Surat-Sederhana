@@ -23,7 +23,8 @@ route::get('/lihat_{id}',[SuratControllers::Class,'lihat']);
 route::get('/hapus_{id}',[SuratControllers::class,'hapus']);
 route::post('cari',[SuratControllers::class,'cari']);
 route::get('/download_{file}',[SuratControllers::class,'download'])->name('download');
-route::get('/ubah/{id}',[SuratControllers::class,'ubah'])->name('ubah');
+route::get('/ubah_{id}',[SuratControllers::class,'ubah'])->name('ubah');
+route::post('update_{id}',[SuratControllers::class,'update']);
 
 route::get('/unggah',function(){
     return view('unggah');
