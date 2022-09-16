@@ -31,6 +31,7 @@ class SuratControllers extends Controller
             'judul'=>$request->judul,
             'file'=>$nama_dokumen,
         ]);
+        Alert::success('Sukses', 'Data berhasil disimpan');
         return redirect ('/');
     }   
     public function lihat($id){
@@ -43,6 +44,7 @@ class SuratControllers extends Controller
                 \Storage::delete('public/'.$data->featured_image);
             }
         $data->delete();
+        Alert::success('Sukses', 'Data berhasil dihapus');
     return redirect('/');
     }
     public function cari(Request $request){
@@ -60,7 +62,7 @@ class SuratControllers extends Controller
     public function update(Request $request,$id){
         $data=Surat::find($id);
         $validated=$request->validate([
-            'no_surat'=>'unique:surats,no_surat',
+            'no_surat'=>'unique:surats,no_surat|max:15',
             'file'=>'mimes:pdf',
         ]);
         $dokumen=$request->file('file');
