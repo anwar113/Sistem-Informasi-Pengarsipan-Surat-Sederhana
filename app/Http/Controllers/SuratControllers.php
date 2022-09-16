@@ -28,7 +28,7 @@ class SuratControllers extends Controller
             'file'=>$fileName,
         ]);
         return redirect ('/');
-    }
+    }   
     public function lihat($id){
         return view('lihat',['surat'=>Surat::find($id)]);
     }
@@ -40,6 +40,11 @@ class SuratControllers extends Controller
             }
         $data->delete();
     return redirect('/');
+    }
+    public function cari(Request $request){
+        $data=Surat::where('judul','like','%'.$request->cari.'%')->get();
+        // dd($data->count());
+        return view('home',['surat'=>$data]);
     }
     
 }

@@ -35,12 +35,12 @@
                     <div class="col-sm-12">
                         <div class="card-body">
                             <div class="mb-4">
-                                <form action="#" method="get">
+                                <form action="/cari" method="post">
                                     @csrf
                                     <div class="input-group">
                                         <label for="html5-text-input" class="col-md-2 col-form-label">Cari Surat
                                         </label>
-                                        <input type="text" class="form-control" placeholder="Input Judul"
+                                        <input name="cari" type="text" class="form-control" placeholder="Input Judul"
                                             aria-label="Recipient's username" aria-describedby="button-addon2" />
                                         <button class="btn btn-outline-primary" type="submit" id="button-addon2">Cari
                                             !</button>
@@ -61,7 +61,9 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach ($surat as $sr )
+
+                                        @if ($surat->count() > 0 )
+                                        @foreach ($surat as $sr )
                                         <tr>
                                             <td>{{$sr->no_surat}}</td>
                                             <td>{{$sr->kategori}}</td>
@@ -117,6 +119,18 @@
                                             </div>
                                         </tr>
                                         @endforeach
+                                        @else
+                                        <tr>
+                                            <td colspan="4" class="align-middle">
+<br>
+Maaf, Surat Tidak Ditemukan. . .
+<br>
+<br>
+                                            </td>
+                                        </tr>
+
+                                        @endif
+
 
                                     </tbody>
                                     <tfoot>
