@@ -74,8 +74,8 @@
                                     </div>
                                     <br>
                                     <div class="input-group">
-                                        <label for="formFile" class="col-md-2 col-form-label">File Surat (PDF) </label>
-                                        <input class="form-control" type="file" id="formFile" name="pdf"
+                                        <label for="file" class="col-md-2 col-form-label">File Surat (PDF) </label>
+                                        <input class="form-control" type="file" id="formFile" name="file"
                                             required="required" />
                                         @if($errors->has('file'))
                                         <br>

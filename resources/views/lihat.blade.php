@@ -73,8 +73,7 @@
                     <div class="col-sm-12">
                         <div class="card-body">
                             <div class="mb-4">
-                                <iframe src="{{asset('$surat->file')}}" frameborder="0"></iframe>
-                                <embed src="{{asset('storage/files/'.$surat->file)}}" width="600" height="500" alt="pdf">
+                                <embed src="{{asset('storage/'.$surat->file)}}" width="600" height="500" alt="pdf">
                             </div>
                             <div class="">
                                 <br>

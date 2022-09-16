@@ -75,7 +75,7 @@
                                                     Hapus
                                                 </button>
                                                 <a href="" type="button" class="btn btn-sm btn-warning">Unduh</a>
-                                                <a href="lihat/{{$sr->id}}" type="button"
+                                                <a href="/lihat/{{$sr->id}}" type="button"
                                                     class="btn btn-sm btn-primary">Lihat</a>
                                             </td>
                                             <!-- Default Modal -->
@@ -122,10 +122,10 @@
                                         @else
                                         <tr>
                                             <td colspan="4" class="align-middle">
-<br>
-Maaf, Surat Tidak Ditemukan. . .
-<br>
-<br>
+                                                <br>
+                                                Maaf, Surat Tidak Ditemukan. . .
+                                                <br>
+                                                <br>
                                             </td>
                                         </tr>
 

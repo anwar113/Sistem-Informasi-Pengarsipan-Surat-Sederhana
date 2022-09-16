@@ -14,18 +14,17 @@ class SuratControllers extends Controller
     public function store(Request $request){
     
         $validated=$request->validate([
-            'pdf'=>'mimes:pdf',
-            'no_surat'=>'unique:Surat,no_surat',
-            'pdf'=>'mimes:pdf',
+            'no_surat'=>'unique:surats,no_surat',
+            'file'=>'mimes:pdf,',
         ]);
-        if($request->file('pdf')){
-            $fileName = $request->file('pdf')->store('files','public');
+        if($request->file('file')){
+            $namafile = $request->file('file')->store('files','public');
         }
         Surat::create([
             'no_surat'=>$request->no_surat,
             'kategori'=>$request->kategori,
             'judul'=>$request->judul,
-            'file'=>$fileName,
+            'file'=>$namafile,
         ]);
         return redirect ('/');
     }   
