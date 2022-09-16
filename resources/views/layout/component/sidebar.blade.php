@@ -1,8 +1,8 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
-        <a href="index.html" class="app-brand-link">
+        <a href="/" class="app-brand-link">
             <span class="app-brand-logo demo">
-                <svg width="25" viewBox="0 0 25 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                <!-- <svg width="25" viewBox="0 0 25 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink">
                     <defs>
                         <path
@@ -43,7 +43,9 @@
                             </g>
                         </g>
                     </g>
-                </svg>
+                </svg> -->
+                
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: rgba(90, 175, 216, 1);transform: ;msFilter:;"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
             </span>
             <span class="app-brand-text demo menu-text fw-bolder ms-2">Arsip Surat</span>
         </a>
@@ -61,7 +63,7 @@
         </li>
         <!-- Arsip -->
         <li class="menu-item">
-            <a href="index.html" class="menu-link">
+            <a href="/" class="menu-link">
                 <i class='menu-icon tf-icons bx bxs-star'></i>
                 <div data-i18n="Analytics">Arsip</div>
             </a>
@@ -69,7 +71,7 @@
         <!-- /arsip -->
         <!-- about -->
         <li class="menu-item">
-            <a href="index.html" class="menu-link">
+            <a href="{{route('about')}}" class="menu-link">
                 <i class='menu-icon tf-icons bx bxs-info-circle'></i>
                 <div data-i18n="Analytics">About</div>
             </a>

@@ -17,5 +17,14 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 Route::get('/', function () {
-    return view('layout.app');
-});
+    return view('home');
+})->name('home');
+route::get('/unggah',function(){
+    return view('unggah');
+})->name('unggah');
+route::get('/lihat',function(){
+    return view('lihat');
+})->name('lihat');
+route::get('about',function(){
+    return view('about');
+})->name('about');
