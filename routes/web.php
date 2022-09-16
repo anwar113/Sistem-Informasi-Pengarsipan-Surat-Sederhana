@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SuratControllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,8 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/',[SuratControllers::class,'index'])->name('home');
+route::post('store',[SuratControllers::class,'store'])->name('store');
 route::get('/unggah',function(){
     return view('unggah');
 })->name('unggah');

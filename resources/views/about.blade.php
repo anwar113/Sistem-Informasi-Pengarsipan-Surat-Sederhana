@@ -14,7 +14,6 @@
                             <div class="row">
                                 <div class="col">
                                     <img src="/ft.jpg" class="img-thumbnail rounded border border-4" alt="" width="150" height="150">
-                                    
                                 </div>
                                 <div class="col">
                                 <p class="mb-4">
@@ -24,7 +23,6 @@
                                     Tanggal : 13 September 2022
                                     </p>
                                 </div>
-
                                 <br>
                             </div>
 

@@ -44,19 +44,19 @@
                     <div class="col-sm-12">
                         <div class="card-body">
                             <div class="mb-2">
-                                <form action="#" method="get">
+                                <form action="store" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="input-group">
                                         <label for="html5-text-input" class="col-md-2 col-form-label">Nomor Surat
                                         </label>
-                                        <div class="col col-md-2  ">
-                                            <input type="text" class="form-control">
+                                        <div class="col col-md-2">
+                                            <input type="text" name="no_surat" class="form-control" required>
                                         </div>
                                     </div>
                                     <br>
                                     <div class="input-group">
                                         <label class="col-md-2 col-form-label" for="inputGroupSelect01">Kategori</label>
-                                        <select class="form-select" id="inputGroupSelect01">
+                                        <select class="form-select" id="inputGroupSelect01" name="kategori" required>
 
                                             <option value="Undangan">Undangan</option>
                                             <option value="Pengumuman">Pengumuman</option>
@@ -69,13 +69,13 @@
                                         <label for="html5-text-input" class="col-md-2 col-form-label">Judul
                                         </label>
                                         <div class="col-md-4">
-                                            <input type="text" class="form-control">
+                                            <input type="text" name="judul" class="form-control" required>
                                         </div>
                                     </div>
                                     <br>
                                     <div class="input-group">
                                         <label for="formFile" class="col-md-2 col-form-label">File Surat (PDF) </label>
-                                        <input class="form-control" type="file" id="formFile" />
+                                        <input class="form-control" type="file" id="formFile" name="file" required="required" />
                                     </div>
 
                             </div>

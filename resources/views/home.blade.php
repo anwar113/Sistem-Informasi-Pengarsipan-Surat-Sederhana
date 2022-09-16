@@ -63,18 +63,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach ($surat as $s )
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
+                                            <td>$s->no_surat</td>
+                                            <td>$s->kategori</td>
+                                            <td>$s->judul</td>
+                                            <td>$s->updated_at</td>
                                             <td>
                                                 <button type="button" class="btn btn-sm btn-danger"
-                                                    data-bs-toggle="modal" data-bs-target="#basicModal">
+                                                    data-bs-toggle="modal" data-bs-target="#basicModal{{$s->id}}">
                                                     Hapus
                                                 </button>
                                                 <a href="" type="button" class="btn btn-sm btn-warning">Unduh</a>
-                                                <a href="{{route('lihat')}}" type="button" class="btn btn-sm btn-primary">Lihat</a>
+                                                <a href="{{route('lihat')}}" type="button"
+                                                    class="btn btn-sm btn-primary">Lihat</a>
                                             </td>
                                             <!-- Default Modal -->
                                             <div class="col-lg-4 col-md-6">
@@ -95,7 +97,9 @@
                                                                     <div class="row">
                                                                         <div class="col mb-3 ">
                                                                             <label for="nameBasic"
-                                                                                class="form-label align-center">Apakah anda yakin ingin menghapus arsip surat ini ?</label> 
+                                                                                class="form-label align-center">Apakah
+                                                                                anda yakin ingin menghapus arsip surat
+                                                                                ini ?</label>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -105,7 +109,8 @@
                                                                         data-bs-dismiss="modal">
                                                                         Batal
                                                                     </button>
-                                                                    <button type="button" class="btn btn-primary">Ya!</button>
+                                                                    <button type="button"
+                                                                        class="btn btn-primary">Ya!</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -113,6 +118,8 @@
                                                 </div>
                                             </div>
                                         </tr>
+                                        @endforeach
+
                                     </tbody>
                                     <tfoot>
                                         <tr>

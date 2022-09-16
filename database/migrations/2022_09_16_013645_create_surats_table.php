@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('surats', function (Blueprint $table) {
             $table->id();
+            $table->string('no_surat',15);
+            $table->string('kategori',20);
+            $table->string('judul',50);
+            $table->string('file');
             $table->timestamps();
         });
     }
