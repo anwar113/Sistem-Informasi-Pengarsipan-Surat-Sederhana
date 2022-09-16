@@ -85,8 +85,8 @@
                                             </a>
                                     </div>
                                     <div class="col">
-                                    <a href="{!! route('download', $surat->file) !!}" download>{{ $surat->file }}</a>
-                                    <a href="{{route('unggah')}}" type="button" class="btn btn-outline-warning">Unduh</a>
+                                    <a href="{!! route('download', $surat->file) !!}" type="button" class="btn btn-outline-warning" download>Unduh</a>
+                                    
                                     </div>
                                     <div class="col">
                                     <a href="{{route('unggah')}}" type="button" class="btn btn-warning">Edit / Ganti File</a>
