@@ -81,7 +81,7 @@
                                     <br>
                                     <div class="input-group">
                                         <label for="file" class="col-md-2 col-form-label">File Surat (PDF) </label>
-                                        <input require="required" class="form-control" type="file" id="formFile" name="file" />
+                                        <input class="form-control" type="file" id="formFile" name="file" />
                                         @if($errors->has('file'))
                                         <br>
                                         <small class="error">{{ $errors->first('file') }}</small>

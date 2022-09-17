@@ -65,15 +65,24 @@ class SuratControllers extends Controller
             'no_surat'=>'unique:surats,no_surat|max:15',
             'file'=>'mimes:pdf',
         ]);
-        $dokumen=$request->file('file');
-        $nama_dokumen='DOC'.date('Tmdhis').'.'.$request->file->extension() ;
-        $dokumen->move('dokumen/',$nama_dokumen);
 
+        if ($request->hasFile('file')) {
+            $dokumen=$request->file('file');
+            $nama_dokumen='DOC'.date('Tmdhis').'.'.$request->file->extension() ;
+            $dokumen->move('dokumen/',$nama_dokumen);
+            $data->file=$nama_dokumen;
+        }
+        
         $data->no_surat=$request->no_surat;
         $data->kategori=$request->kategori;
         $data->judul=$request->judul;
-        $data->file=$nama_dokumen;
         $data->save();
+        
+
+        if (isset($exist_file)&& file_exists($exist_file)) {
+            unlink($exist_file);
+        }
+
         Alert::success('Sukses', 'Data berhasil disimpan');
         return redirect('lihat_'.$data->id);
     }
