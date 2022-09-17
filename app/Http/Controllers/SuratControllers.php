@@ -79,9 +79,9 @@ class SuratControllers extends Controller
         $data->save();
         
 
-        if (isset($exist_file)&& file_exists($exist_file)) {
-            unlink($exist_file);
-        }
+        // if (isset($exist_file)&& file_exists($exist_file)) {
+        //     unlink($exist_file);
+        // }
 
         Alert::success('Sukses', 'Data berhasil disimpan');
         return redirect('lihat_'.$data->id);
